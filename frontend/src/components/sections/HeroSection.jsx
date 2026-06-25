@@ -29,47 +29,22 @@ function HeroSection() {
 
   return (
     <section className="relative min-h-screen bg-gradient-hero flex items-center justify-center overflow-hidden py-20">
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-            rotate: [0, 90, 0],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-10 w-96 h-96 bg-titan-orange rounded-full blur-3xl pointer-events-none"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2],
-            rotate: [0, -90, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-titan-gold rounded-full blur-3xl pointer-events-none"
-        />
-        <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            opacity: [0.1, 0.3, 0.1],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-titan-orange/50 rounded-full blur-3xl pointer-events-none"
-        />
+      {/* Premium Dark Gradient Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-titan-black via-[#0d1229] to-titan-black" />
+        <div className="absolute inset-0 bg-gradient-to-t from-titan-black/80 via-transparent to-transparent" />
+        
+        {/* Subtle Light Effect - Top Right */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-titan-gold/5 rounded-full blur-[120px] pointer-events-none" />
+        
+        {/* Subtle Light Effect - Bottom Left */}
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-titan-orange/3 rounded-full blur-[100px] pointer-events-none" />
       </div>
 
-      {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="w-full h-full" style={{
-          backgroundImage: `
-            linear-gradient(to right, #d4af37 1px, transparent 1px),
-            linear-gradient(to bottom, #d4af37 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px'
-        }} />
-      </div>
+      {/* Subtle Noise Texture Overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`
+      }} />
 
       {/* Content */}
       <div className="container-custom relative z-10 text-center max-w-4xl">
@@ -79,11 +54,11 @@ function HeroSection() {
           animate="visible"
         >
           {/* Badge */}
-          <motion.div variants={itemVariants} className="mb-6">
-            <div className="inline-flex items-center gap-2 bg-titan-gold/10 border border-titan-gold/30 rounded-full px-4 py-2">
-              <span className="w-2 h-2 bg-titan-orange rounded-full animate-pulse" />
-              <span className="text-titan-orange text-sm font-semibold uppercase tracking-wider">
-                Premium Fitness Nutrition
+          <motion.div variants={itemVariants} className="mb-8">
+            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 backdrop-blur-sm rounded-full px-5 py-2.5">
+              <span className="w-1.5 h-1.5 bg-titan-gold rounded-full" />
+              <span className="text-titan-gold text-xs font-medium uppercase tracking-[0.2em]">
+                Elite Performance Nutrition
               </span>
             </div>
           </motion.div>
@@ -91,10 +66,10 @@ function HeroSection() {
           {/* Headline */}
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight text-white"
+            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight text-white tracking-tight"
           >
-            Build Your{' '}
-            <span className="text-titan-gold">
+            Forge Your{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-titan-gold via-[#f4d03f] to-titan-gold">
               Legacy
             </span>
           </motion.h1>
@@ -102,9 +77,9 @@ function HeroSection() {
           {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light"
           >
-            Third-party tested, scientifically formulated supplements trusted by athletes, competitors, and fitness enthusiasts worldwide.
+            Scientifically formulated supplements trusted by elite athletes worldwide.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -114,16 +89,16 @@ function HeroSection() {
           >
             <Link
               to="/products"
-              className="btn-primary text-lg group relative overflow-hidden px-8 py-4 rounded-lg"
+              className="group relative overflow-hidden bg-gradient-to-r from-titan-gold via-[#f4d03f] to-titan-gold text-titan-black px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-titan-gold/20 hover:-translate-y-0.5"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
-                Explore Products
+                Explore Collection
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
-            <button className="btn-secondary text-lg flex items-center justify-center gap-2 group px-8 py-4 rounded-lg bg-titan-dark border-2 border-titan-gold text-titan-gold hover:bg-titan-gold hover:text-titan-black transition-all duration-200">
+            <button className="flex items-center justify-center gap-2 group px-8 py-4 rounded-lg bg-transparent border border-white/20 text-white font-medium text-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300">
               <FiPlay className="w-4 h-4" />
-              <span>Watch Transformations</span>
+              <span>Watch Story</span>
             </button>
           </motion.div>
         </motion.div>
