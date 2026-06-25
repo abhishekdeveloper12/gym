@@ -40,8 +40,8 @@ function WhyChooseSection() {
     <section className="py-20 bg-gradient-hero">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-display mb-4">Why Choose Titan Nutrition</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-display mb-4 text-gray-900">Why Choose Titan Nutrition</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
             We're committed to premium quality, transparency, and customer success
           </p>
         </div>
@@ -58,7 +58,7 @@ function WhyChooseSection() {
             >
               <div className="text-4xl mb-4">{reason.icon}</div>
               <h3 className="text-subheading mb-2 text-titan-gold">{reason.title}</h3>
-              <p className="text-gray-400">{reason.description}</p>
+              <p className="text-gray-600">{reason.description}</p>
             </motion.div>
           ))}
         </div>

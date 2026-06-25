@@ -33,11 +33,11 @@ function TransformationSection() {
   ];
 
   return (
-    <section className="py-20 bg-titan-dark/50">
+    <section className="py-20 bg-gradient-hero">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-display mb-4">Real Transformations</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-display mb-4 text-gray-900">Real Transformations</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
             See the incredible results our community achieves with dedication and Titan products
           </p>
         </div>
@@ -54,16 +54,16 @@ function TransformationSection() {
             >
               <div className="flex gap-2 mb-4">
                 <div className="flex-1">
-                  <p className="text-xs text-gray-400">Before</p>
+                  <p className="text-xs text-gray-500">Before</p>
                   <img
                     src={story.beforeImage}
                     alt="Before"
                     className="w-full h-48 object-cover rounded"
                   />
-                  <p className="text-xs text-gray-400 mt-1">{story.beforeStats}</p>
+                  <p className="text-xs text-gray-600 mt-1">{story.beforeStats}</p>
                 </div>
                 <div className="flex-1">
-                  <p className="text-xs text-gray-400">After</p>
+                  <p className="text-xs text-gray-500">After</p>
                   <img
                     src={story.afterImage}
                     alt="After"
@@ -74,9 +74,9 @@ function TransformationSection() {
               </div>
 
               <div className="p-4">
-                <h3 className="font-bold text-lg mb-2">{story.name}</h3>
+                <h3 className="font-bold text-lg mb-2 text-gray-900">{story.name}</h3>
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-sm text-gray-400">{story.duration}</span>
+                  <span className="text-sm text-gray-600">{story.duration}</span>
                   <span className="text-titan-gold font-semibold">{story.result}</span>
                 </div>
                 <button className="btn-secondary w-full text-sm">

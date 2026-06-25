@@ -23,11 +23,11 @@ function CommunityFeedSection() {
   ];
 
   return (
-    <section id="community" className="py-20 bg-titan-dark/50">
+    <section id="community" className="py-20 bg-gradient-hero">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-display mb-4">Community Feed</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-display mb-4 text-gray-900">Community Feed</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Follow our community for inspiration and fitness content
           </p>
         </div>
@@ -41,9 +41,9 @@ function CommunityFeedSection() {
                 className="w-full h-64 object-cover"
               />
               <div className="p-4">
-                <p className="font-semibold mb-2">{post.author}</p>
-                <p className="text-gray-300 text-sm mb-3">{post.caption}</p>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <p className="font-semibold mb-2 text-gray-900">{post.author}</p>
+                <p className="text-gray-700 text-sm mb-3">{post.caption}</p>
+                <div className="flex items-center gap-2 text-sm text-gray-600">
                   <span>❤️</span>
                   <span>{post.likes.toLocaleString()} likes</span>
                 </div>

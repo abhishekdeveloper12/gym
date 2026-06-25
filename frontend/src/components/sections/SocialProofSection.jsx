@@ -37,8 +37,8 @@ function SocialProofSection() {
     <section className="py-20 bg-gradient-hero">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-display mb-4">What Our Customers Say</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-display mb-4 text-gray-900">What Our Customers Say</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Join thousands of satisfied customers who've achieved their fitness goals
           </p>
         </div>
@@ -65,7 +65,7 @@ function SocialProofSection() {
                 </div>
               </div>
 
-              <p className="text-gray-300 text-sm mb-3">{review.comment}</p>
+              <p className="text-gray-700 text-sm mb-3">{review.comment}</p>
               <p className="text-xs text-titan-gold font-semibold">{review.product}</p>
             </motion.div>
           ))}

@@ -27,11 +27,11 @@ function AthletesSection() {
   ];
 
   return (
-    <section className="py-20 bg-titan-dark/50">
+    <section className="py-20 bg-gradient-hero">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-display mb-4">Featured Athletes</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-display mb-4 text-gray-900">Featured Athletes</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Meet the champions who trust Titan Nutrition for their fitness journey
           </p>
         </div>
@@ -51,9 +51,9 @@ function AthletesSection() {
                 alt={athlete.name}
                 className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
               />
-              <h3 className="text-subheading mb-1">{athlete.name}</h3>
+              <h3 className="text-subheading mb-1 text-gray-900">{athlete.name}</h3>
               <p className="text-titan-gold font-semibold mb-2">{athlete.title}</p>
-              <p className="text-sm text-gray-400 mb-4">{athlete.description}</p>
+              <p className="text-sm text-gray-600 mb-4">{athlete.description}</p>
               <div className="flex justify-center items-center gap-2">
                 <span className="text-xs text-gray-500">●</span>
                 <span className="text-sm text-titan-gold">{athlete.achievement}</span>

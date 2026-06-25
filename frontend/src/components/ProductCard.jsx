@@ -42,7 +42,7 @@ function ProductCard({ product }) {
         transition={{ duration: 0.2 }}
       >
         {/* Image Container */}
-        <div className="relative w-full h-56 bg-titan-dark overflow-hidden group">
+        <div className="relative w-full h-56 bg-gray-100 overflow-hidden group">
           <LazyImage
             src={product.images?.[0] || 'https://via.placeholder.com/300'}
             alt={product.name}
@@ -62,7 +62,7 @@ function ProductCard({ product }) {
           )}
 
           {/* Hover Buttons */}
-          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4 gap-2">
+          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4 gap-2">
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -91,7 +91,7 @@ function ProductCard({ product }) {
         {/* Content */}
         <div className="p-4 flex flex-col justify-between h-full">
           <div>
-            <h3 className="font-semibold line-clamp-2 mb-2 hover:text-titan-gold transition-colors duration-200 break-words">
+            <h3 className="font-semibold line-clamp-2 mb-2 hover:text-titan-gold transition-colors duration-200 break-words text-gray-900">
               {product.name}
             </h3>
 
@@ -107,7 +107,7 @@ function ProductCard({ product }) {
           <div className="flex items-baseline gap-2 flex-wrap">
             <span className="text-lg font-bold text-titan-gold whitespace-nowrap">₹{product.price}</span>
             {product.originalPrice && (
-              <span className="text-sm text-gray-400 line-through whitespace-nowrap">₹{product.originalPrice}</span>
+              <span className="text-sm text-gray-500 line-through whitespace-nowrap">₹{product.originalPrice}</span>
             )}
           </div>
 
