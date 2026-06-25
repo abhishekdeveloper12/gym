@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiArrowRight, FiPlay, FiAward, FiShield, FiTrendingUp } from 'react-icons/fi';
+import { FiArrowRight, FiPlay, FiCheckCircle, FiZap, FiTrendingUp } from 'react-icons/fi';
 
 function HeroSection() {
   const containerVariants = {
@@ -28,80 +28,95 @@ function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-hero flex items-center justify-center overflow-hidden py-20">
-      {/* Premium Dark Gradient Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-titan-black via-[#0d1229] to-titan-black" />
-        <div className="absolute inset-0 bg-gradient-to-t from-titan-black/80 via-transparent to-transparent" />
-        
-        {/* Subtle Light Effect - Top Right */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-titan-gold/5 rounded-full blur-[120px] pointer-events-none" />
-        
-        {/* Subtle Light Effect - Bottom Left */}
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-titan-orange/3 rounded-full blur-[100px] pointer-events-none" />
-      </div>
-
-      {/* Subtle Noise Texture Overlay */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`
-      }} />
+    <section className="relative min-h-screen bg-white flex items-center overflow-hidden py-12 lg:py-20">
+      {/* Light Background with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white" />
 
       {/* Content */}
-      <div className="container-custom relative z-10 text-center max-w-4xl">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {/* Badge */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 backdrop-blur-sm rounded-full px-5 py-2.5">
-              <span className="w-1.5 h-1.5 bg-titan-gold rounded-full" />
-              <span className="text-titan-gold text-xs font-medium uppercase tracking-[0.2em]">
-                Elite Performance Nutrition
+      <div className="container-custom relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-center lg:text-left"
+          >
+            {/* Badge */}
+            <motion.div variants={itemVariants} className="mb-6">
+              <div className="inline-flex items-center gap-2 bg-black text-white rounded-full px-4 py-2">
+                <span className="text-xs font-semibold uppercase tracking-wider">
+                  Introducing
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-black"
+            >
+              World's FIRST & FINEST{' '}
+              <span className="text-black">
+                Creatine Nano 400
               </span>
+            </motion.h1>
+
+            {/* Benefits */}
+            <motion.div variants={itemVariants} className="mb-8 space-y-3">
+              <div className="flex items-center gap-3">
+                <FiCheckCircle className="w-5 h-5 text-green-600" />
+                <span className="text-gray-700 font-medium">2X More Absorption</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <FiZap className="w-5 h-5 text-orange-500" />
+                <span className="text-gray-700 font-medium">2X Finer Particles</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <FiTrendingUp className="w-5 h-5 text-blue-600" />
+                <span className="text-gray-700 font-medium">Faster ATP Refill</span>
+              </div>
+            </motion.div>
+
+            {/* CTA Button */}
+            <motion.div variants={itemVariants}>
+              <Link
+                to="/products"
+                className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:bg-gray-800 hover:shadow-lg"
+              >
+                Shop Now
+                <FiArrowRight className="w-5 h-5" />
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Content - Product Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative"
+          >
+            <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 lg:p-12">
+              {/* Product Image Placeholder */}
+              <div className="aspect-square flex items-center justify-center bg-white rounded-xl shadow-lg">
+                <div className="text-center">
+                  <div className="w-48 h-48 mx-auto bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg mb-4 flex items-center justify-center">
+                    <span className="text-gray-500 text-lg font-semibold">Product Image</span>
+                  </div>
+                  <p className="text-gray-600 text-sm">Creatine Nano 400</p>
+                </div>
+              </div>
+              
+              {/* Carousel Indicators */}
+              <div className="flex justify-center gap-2 mt-6">
+                <div className="w-8 h-2 bg-black rounded-full" />
+                <div className="w-2 h-2 bg-gray-300 rounded-full" />
+                <div className="w-2 h-2 bg-gray-300 rounded-full" />
+              </div>
             </div>
           </motion.div>
-
-          {/* Headline */}
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight text-white tracking-tight"
-          >
-            Forge Your{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-titan-gold via-[#f4d03f] to-titan-gold">
-              Legacy
-            </span>
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            variants={itemVariants}
-            className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light"
-          >
-            Scientifically formulated supplements trusted by elite athletes worldwide.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Link
-              to="/products"
-              className="group relative overflow-hidden bg-gradient-to-r from-titan-gold via-[#f4d03f] to-titan-gold text-titan-black px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-titan-gold/20 hover:-translate-y-0.5"
-            >
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                Explore Collection
-                <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Link>
-            <button className="flex items-center justify-center gap-2 group px-8 py-4 rounded-lg bg-transparent border border-white/20 text-white font-medium text-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300">
-              <FiPlay className="w-4 h-4" />
-              <span>Watch Story</span>
-            </button>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

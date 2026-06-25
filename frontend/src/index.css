@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  @apply bg-titan-black text-white font-body overflow-x-hidden;
+  @apply bg-white text-black font-body overflow-x-hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -29,7 +29,7 @@ body {
 
 /* Premium gradient backgrounds */
 .gradient-hero {
-  @apply bg-gradient-to-br from-titan-black via-titan-dark to-titan-black;
+  @apply bg-gradient-to-br from-white via-titan-gray to-white;
 }
 
 .gradient-accent {
@@ -56,7 +56,7 @@ body {
 }
 
 .btn-primary {
-  @apply btn bg-gradient-to-r from-titan-gold to-titan-orange text-titan-black hover:shadow-lg hover:shadow-titan-orange/50;
+  @apply btn bg-black text-white hover:bg-gray-800 hover:shadow-lg;
   transition: all 200ms ease-out;
 }
 
@@ -65,30 +65,30 @@ body {
 }
 
 .btn-secondary {
-  @apply btn border-2 border-titan-gold text-titan-gold transition-colors duration-200;
+  @apply btn border-2 border-black text-black transition-colors duration-200;
 }
 
 .btn-secondary:hover {
-  @apply bg-titan-gold text-titan-black;
+  @apply bg-black text-white;
 }
 
 .btn-ghost {
-  @apply btn text-white transition-colors duration-200;
+  @apply btn text-black transition-colors duration-200;
 }
 
 .btn-ghost:hover {
-  @apply bg-titan-dark/50;
+  @apply bg-gray-100;
 }
 
 /* Cards */
 .card {
-  @apply bg-titan-dark/50 border border-titan-gold/20 rounded-xl overflow-hidden transition-all duration-200;
+  @apply bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-200;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
 .card:hover {
-  @apply border-titan-gold/50;
+  @apply border-gray-400 shadow-lg;
 }
 
 /* Product Cards */
@@ -97,7 +97,7 @@ body {
 }
 
 .product-card:hover {
-  @apply -translate-y-2 shadow-lg shadow-titan-orange/20;
+  @apply -translate-y-2 shadow-lg;
 }
 
 /* Smooth scrollbar */
@@ -106,9 +106,9 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-titan-black;
+  @apply bg-gray-100;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-titan-gold/40 hover:bg-titan-gold/60 rounded-full;
+  @apply bg-gray-400 hover:bg-gray-500 rounded-full;
 }

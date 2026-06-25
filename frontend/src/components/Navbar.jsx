@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiShoppingCart, FiUser, FiMenu, FiX, FiHeart } from 'react-icons/fi';
+import { FiShoppingCart, FiUser, FiMenu, FiX, FiHeart, FiSearch, FiMessageSquare, FiGrid } from 'react-icons/fi';
 import { useCartStore } from '../store/store';
 import { useAuthStore } from '../store/store';
 import { useWishlistStore } from '../store/store';
@@ -12,73 +12,81 @@ function Navbar() {
   const { items: wishlistItems } = useWishlistStore();
 
   return (
-    <nav className="sticky top-0 z-50 bg-titan-dark/80 border-b border-titan-gold/20" style={{ WebkitBackdropFilter: 'blur(8px)', backdropFilter: 'blur(8px)' }}>
-      <div className="container-custom flex justify-between items-center py-4 gap-4">
+    <nav className="sticky top-0 z-50 bg-black border-b border-gray-800">
+      <div className="container-custom flex justify-between items-center py-3 gap-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
-          <span className="text-2xl font-bold bg-gradient-accent bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-200">
-            Titan
+          <span className="text-2xl font-bold text-white group-hover:scale-105 transition-transform duration-200">
+            BEAST LIFE
           </span>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          <Link to="/" className="text-gray-300 hover:text-titan-gold transition-colors duration-200 whitespace-nowrap">
-            Home
+        <div className="hidden lg:flex items-center gap-6">
+          <Link to="/products" className="text-white hover:text-gray-300 transition-colors duration-200 whitespace-nowrap text-sm font-medium">
+            Product
           </Link>
-          <Link to="/products" className="text-gray-300 hover:text-titan-gold transition-colors duration-200 whitespace-nowrap">
-            Products
+          <Link to="/" className="text-white hover:text-gray-300 transition-colors duration-200 whitespace-nowrap text-sm font-medium">
+            Our Story
           </Link>
-          <a href="#faq" className="text-gray-300 hover:text-titan-gold transition-colors duration-200 whitespace-nowrap">
-            FAQ
-          </a>
-          <a href="#community" className="text-gray-300 hover:text-titan-gold transition-colors duration-200 whitespace-nowrap">
-            Community
-          </a>
+          <Link to="/" className="text-white hover:text-gray-300 transition-colors duration-200 whitespace-nowrap text-sm font-medium">
+            Authenticity Guaranteed
+          </Link>
+          <Link to="/" className="text-white hover:text-gray-300 transition-colors duration-200 whitespace-nowrap text-sm font-medium">
+            Blogs
+          </Link>
+          <Link to="/" className="text-white hover:text-gray-300 transition-colors duration-200 whitespace-nowrap text-sm font-medium">
+            Track My Order
+          </Link>
         </div>
 
         {/* Right Side */}
         <div className="hidden md:flex items-center gap-4">
-          <Link to="/wishlist" className="relative hover:text-titan-gold transition-colors duration-200 flex-shrink-0">
-            <FiHeart size={24} />
+          {/* Search Bar */}
+          <div className="relative hidden xl:block">
+            <input
+              type="text"
+              placeholder="Search For"
+              className="bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 pl-10 text-white text-sm focus:outline-none focus:border-gray-600 w-48"
+            />
+            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
+          </div>
+
+          {/* Icons */}
+          <button className="text-white hover:text-gray-300 transition-colors duration-200 flex-shrink-0">
+            <FiMessageSquare size={20} />
+          </button>
+          
+          <button className="text-white hover:text-gray-300 transition-colors duration-200 flex-shrink-0">
+            <FiGrid size={20} />
+          </button>
+
+          <Link to="/wishlist" className="relative text-white hover:text-gray-300 transition-colors duration-200 flex-shrink-0">
+            <FiHeart size={20} />
             {wishlistItems.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-titan-orange text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
                 {wishlistItems.length}
               </span>
             )}
           </Link>
 
-          <Link to="/cart" className="relative hover:text-titan-gold transition-colors duration-200 flex-shrink-0">
-            <FiShoppingCart size={24} />
+          <Link to="/cart" className="relative text-white hover:text-gray-300 transition-colors duration-200 flex-shrink-0">
+            <FiShoppingCart size={20} />
             {items.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-titan-orange text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
                 {items.length}
               </span>
             )}
           </Link>
 
           {user ? (
-            <div className="flex items-center gap-4">
-              <Link to="/dashboard" className="flex items-center gap-2 text-gray-300 hover:text-titan-gold transition-colors duration-200 whitespace-nowrap">
-                <FiUser className="flex-shrink-0" />
-                <span className="truncate">{user.name}</span>
-              </Link>
-              <button
-                onClick={logout}
-                className="btn-secondary text-sm flex-shrink-0"
-              >
-                Logout
-              </button>
-            </div>
+            <Link to="/dashboard" className="text-white hover:text-gray-300 transition-colors duration-200 flex-shrink-0">
+              <FiUser size={20} />
+            </Link>
           ) : (
-            <>
-              <Link to="/login" className="text-gray-300 hover:text-titan-gold transition-colors duration-200 whitespace-nowrap">
-                Login
-              </Link>
-              <Link to="/register" className="btn-primary text-sm flex-shrink-0">
-                Register
-              </Link>
-            </>
+            <Link to="/login" className="text-white hover:text-gray-300 transition-colors duration-200 flex-shrink-0">
+              <FiUser size={20} />
+            </Link>
           )}
         </div>
 
@@ -93,23 +101,32 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-titan-dark border-t border-titan-gold/20 py-4">
+        <div className="md:hidden bg-black border-t border-gray-800 py-4">
           <div className="container-custom space-y-4">
-            <Link to="/" className="block text-gray-300 hover:text-titan-gold transition-colors duration-200" onClick={() => setIsOpen(false)}>
-              Home
+            <Link to="/products" className="block text-white hover:text-gray-300 transition-colors duration-200" onClick={() => setIsOpen(false)}>
+              Product
             </Link>
-            <Link to="/products" className="block text-gray-300 hover:text-titan-gold transition-colors duration-200" onClick={() => setIsOpen(false)}>
-              Products
+            <Link to="/" className="block text-white hover:text-gray-300 transition-colors duration-200" onClick={() => setIsOpen(false)}>
+              Our Story
             </Link>
-            <Link to="/wishlist" className="block text-gray-300 hover:text-titan-gold transition-colors duration-200" onClick={() => setIsOpen(false)}>
+            <Link to="/" className="block text-white hover:text-gray-300 transition-colors duration-200" onClick={() => setIsOpen(false)}>
+              Authenticity Guaranteed
+            </Link>
+            <Link to="/" className="block text-white hover:text-gray-300 transition-colors duration-200" onClick={() => setIsOpen(false)}>
+              Blogs
+            </Link>
+            <Link to="/" className="block text-white hover:text-gray-300 transition-colors duration-200" onClick={() => setIsOpen(false)}>
+              Track My Order
+            </Link>
+            <Link to="/wishlist" className="block text-white hover:text-gray-300 transition-colors duration-200" onClick={() => setIsOpen(false)}>
               Wishlist ({wishlistItems.length})
             </Link>
-            <Link to="/cart" className="block text-gray-300 hover:text-titan-gold transition-colors duration-200" onClick={() => setIsOpen(false)}>
+            <Link to="/cart" className="block text-white hover:text-gray-300 transition-colors duration-200" onClick={() => setIsOpen(false)}>
               Cart ({items.length})
             </Link>
             {user ? (
               <>
-                <Link to="/dashboard" className="block text-gray-300 hover:text-titan-gold transition-colors duration-200" onClick={() => setIsOpen(false)}>
+                <Link to="/dashboard" className="block text-white hover:text-gray-300 transition-colors duration-200" onClick={() => setIsOpen(false)}>
                   Dashboard
                 </Link>
                 <button
@@ -117,17 +134,17 @@ function Navbar() {
                     logout();
                     setIsOpen(false);
                   }}
-                  className="w-full text-left text-gray-300 hover:text-titan-gold transition-colors duration-200"
+                  className="w-full text-left text-white hover:text-gray-300 transition-colors duration-200"
                 >
                   Logout
                 </button>
               </>
             ) : (
               <>
-                <Link to="/login" className="block text-gray-300 hover:text-titan-gold transition-colors duration-200" onClick={() => setIsOpen(false)}>
+                <Link to="/login" className="block text-white hover:text-gray-300 transition-colors duration-200" onClick={() => setIsOpen(false)}>
                   Login
                 </Link>
-                <Link to="/register" className="block text-gray-300 hover:text-titan-gold transition-colors duration-200" onClick={() => setIsOpen(false)}>
+                <Link to="/register" className="block text-white hover:text-gray-300 transition-colors duration-200" onClick={() => setIsOpen(false)}>
                   Register
                 </Link>
               </>
