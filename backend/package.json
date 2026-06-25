@@ -1,0 +1,28 @@
+{
+  "name": "titan-nutrition-backend",
+  "version": "1.0.0",
+  "description": "Premium fitness supplement e-commerce backend",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed": "node src/scripts/seedDatabase.js"
+  },
+  "keywords": ["ecommerce", "fitness", "supplements"],
+  "author": "Titan Nutrition",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0",
+    "jwt-simple": "^0.5.6",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "express-validator": "^7.0.0",
+    "axios": "^1.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  @apply antialiased;
+}
+
+body {
+  @apply bg-titan-black text-white font-body overflow-x-hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize text rendering */
+* {
+  -webkit-text-size-adjust: 100%;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full;
+}
+
+/* Text overflow handling */
+.text-ellipsis-custom {
+  @apply overflow-hidden text-ellipsis whitespace-nowrap;
+}
+
+/* Premium gradient backgrounds */
+.gradient-hero {
+  @apply bg-gradient-to-br from-titan-black via-titan-dark to-titan-black;
+}
+
+.gradient-accent {
+  @apply bg-gradient-to-r from-titan-gold to-titan-orange;
+}
+
+/* Typography */
+.text-display {
+  @apply font-display font-bold text-4xl md:text-6xl;
+}
+
+.text-heading {
+  @apply font-display font-bold text-2xl md:text-3xl;
+}
+
+.text-subheading {
+  @apply font-display font-semibold text-lg;
+}
+
+/* Buttons */
+.btn {
+  @apply px-6 py-3 rounded-lg font-semibold inline-flex items-center gap-2 transition-colors duration-200 ease-out;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  @apply btn bg-gradient-to-r from-titan-gold to-titan-orange text-titan-black hover:shadow-lg hover:shadow-titan-orange/50;
+  transition: all 200ms ease-out;
+}
+
+.btn-primary:hover {
+  @apply -translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply btn border-2 border-titan-gold text-titan-gold transition-colors duration-200;
+}
+
+.btn-secondary:hover {
+  @apply bg-titan-gold text-titan-black;
+}
+
+.btn-ghost {
+  @apply btn text-white transition-colors duration-200;
+}
+
+.btn-ghost:hover {
+  @apply bg-titan-dark/50;
+}
+
+/* Cards */
+.card {
+  @apply bg-titan-dark/50 border border-titan-gold/20 rounded-xl overflow-hidden transition-all duration-200;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.card:hover {
+  @apply border-titan-gold/50;
+}
+
+/* Product Cards */
+.product-card {
+  @apply card p-0 cursor-pointer will-change-transform;
+}
+
+.product-card:hover {
+  @apply -translate-y-2 shadow-lg shadow-titan-orange/20;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  @apply w-3;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-titan-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-titan-gold/40 hover:bg-titan-gold/60 rounded-full;
+}
