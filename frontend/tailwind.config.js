@@ -7,12 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        'titan-black': '#000000',
+        'titan-black': '#0a0a0a',
         'titan-dark': '#1a1a1a',
-        'titan-gold': '#d4af37',
-        'titan-orange': '#ff6b35',
+        'titan-gold': '#c9a227',
+        'titan-orange': '#e85d04',
         'titan-white': '#ffffff',
-        'titan-gray': '#f5f5f5',
+        'titan-gray': '#f8f9fa',
+        'titan-light': '#e9ecef',
       },
       fontFamily: {
         'display': ['Poppins', 'sans-serif'],
